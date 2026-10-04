@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#404940", "surface-dim": "#d2d9f4", "on-error": "#ffffff", "inverse-surface": "#283044", "tertiary-container": "#0052d9", "outline": "#707a6f", "outline-variant": "#bfc9bd", "background": "#faf8ff", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#6e3900", "secondary": "#904d00", "surface-tint": "#1f6c39", "surface": "#faf8ff", "surface-bright": "#faf8ff", "secondary-fixed": "#ffdcc3", "primary-fixed": "#a6f4b3", "error": "#ba1a1a", "on-primary-container": "#9ce9a9", "on-tertiary": "#ffffff", "on-tertiary-fixed-variant": "#003ea8", "primary-fixed-dim": "#8bd899", "primary-container": "#1e6b38", "on-error-container": "#93000a", "surface-variant": "#dae2fd", "secondary-container": "#fe932c", "inverse-primary": "#8bd899", "tertiary-fixed": "#dbe1ff", "on-tertiary-container": "#cbd6ff", "on-primary-fixed-variant": "#005225", "on-secondary-container": "#663500", "on-primary": "#ffffff", "tertiary-fixed-dim": "#b4c5ff", "surface-container-highest": "#dae2fd", "surface-container-low": "#f2f3ff", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#2f1500", "on-primary-fixed": "#00210b", "on-secondary": "#ffffff", "primary": "#005224", "inverse-on-surface": "#eef0ff", "tertiary": "#003da6", "surface-container-high": "#e2e7ff", "on-surface": "#131b2e", "surface-container": "#eaedff", "secondary-fixed-dim": "#ffb77d", "on-background": "#131b2e", "on-tertiary-fixed": "#00174b" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "3rem", "space-lg": "1.5rem", "gutter": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin-tablet": "2rem", "gutter-tablet": "1.5rem", "space-sm": "0.5rem", "gutter-desktop": "2rem", "margin": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "price-hero": [ "Plus Jakarta Sans" ], "body-sm": [ "Noto Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "body-lg": [ "Noto Sans" ], "headline-xl": [ "Plus Jakarta Sans" ], "body-md": [ "Noto Sans" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "label-lg": [ "Noto Sans" ], "code-md": [ "JetBrains Mono" ], "headline-lg": [ "Plus Jakarta Sans" ], "label-md": [ "Noto Sans" ], "label-sm": [ "Noto Sans" ] }, "fontSize": { "price-hero": [ "32px", { "lineHeight": "36px", "fontWeight": "800" } ], "body-sm": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-md": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "headline-lg-mobile": [ "22px", { "lineHeight": "30px", "fontWeight": "700" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-xl": [ "36px", { "lineHeight": "44px", "fontWeight": "700" } ], "body-md": [ "16px", { "lineHeight": "24px", "fontWeight": "400" } ], "headline-xl-mobile": [ "28px", { "lineHeight": "36px", "fontWeight": "700" } ], "label-lg": [ "15px", { "lineHeight": "20px", "fontWeight": "600" } ], "code-md": [ "13px", { "lineHeight": "18px", "fontWeight": "500" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "fontWeight": "700" } ], "label-md": [ "13px", { "lineHeight": "18px", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "16px", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-container text-on-primary py-space-xs px-margin-desktop"><div class="max-w-7xl mx-auto flex items-center justify-between font-label-sm text-label-sm"><div class="flex items-center gap-space-lg"><span><span class="font-code-md text-code-md uppercase">GSTIN: 09AAAFB1234F1Z5</span> • CIB&amp;RC Reg. Govt. Licensed Depot</span><span class="hidden lg:inline">मुख्य बाज़ार, मंडी रोड, उत्तर प्रदेश (Main Market, Mandi Road, UP)</span></div><div class="flex items-center gap-space-lg"><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px]">call</span> किसान हेल्पलाइन / Kisan Helpline: 1800-890-5421</span><span class="flex items-center gap-space-xs text-on-primary font-bold"><span class="material-symbols-outlined text-[15px]">chat</span> WhatsApp: +91 94520 11223</span></div></div></div><div class="h-20 max-w-7xl mx-auto px-margin-desktop flex items-center justify-between gap-gutter-desktop"><a class="flex items-center gap-space-md text-inherit no-underline" data-path="home" href="#"><img alt="SVG emblem logo for 'Bhagwati Kisan Mart' (Maa Bhagwati Kisan Seva Kendra). An authentic agricultural trust badge with golden wheat stalk / green sprouting leaf inside a protective round shield emblem, with clean bold text 'भगवती किसान मार्ट' and 'Bhagwati Kisan Mart - Maa Bhagwati Kisan Seva Kendra'. Colors: deep forest green #1E6B38 and golden amber #D97706 on white. Professional, grounded rural utility aesthetic.. Design context: - Primary color: #1e6b38
+- Font: plusJakartaSans
+- Mode: light
+- Roundness: rounded-sm
+. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UWGxxyhdY_XDtVCCu46XAG1BD5H7CXq_svo9KPS8Rrl87cZGgQ2SfokBggECen3xXmnopvsAESyGXw6W4vpsvHK6H0QKDOdCBEXxIr3bu_-8u7vNGqMyp9oNImG1icQrpdtec0rh0-Gc9yPPpt27G8z73H5kMUApdtIsdEIIQOpigKRSM1KSM1_N0k5GUvqIyZlZAgtEmXJZNc6ojMRyl51Z3GuecnWpXROffe50KR7wG1jNX2knnqGno"/><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight text-primary leading-none">भगवती किसान मार्ट</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Maa Bhagwati Kisan Seva Kendra</span></div></a><div class="flex-1 max-w-xl"><div class="flex items-center bg-surface-container-lowest rounded-lg px-space-md py-space-xs shadow-[0_1px_3px_rgba(0,0,0,0.06)]"><span class="material-symbols-outlined text-outline mr-space-sm">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none" placeholder="दवा, खाद, बीज या ब्रांड खोजें (Search Insecticides, Fertilizers, Seeds...)" type="text"/><button class="bg-primary text-on-primary px-space-md py-space-xs rounded-lg font-label-md text-label-md flex items-center hover:bg-primary-container transition-colors">खोजें</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-lg"><span class="material-symbols-outlined text-primary text-[20px]">verified</span><div class="flex flex-col"><span class="font-label-sm text-label-sm leading-none text-on-surface font-bold">100% पक्का बिल</span><span class="font-code-md text-code-md text-on-surface-variant leading-none">GST Verified</span></div></div><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]" data-path="order-tracking" href="#"><span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span><span class="font-label-sm text-label-sm font-bold">ऑर्डर स्थिति</span></a><a class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface transition-colors shadow-[0_1px_3px_rgba(0,0,0,0.05)]" data-path="customer-login" href="#"><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div><span class="font-label-sm text-label-sm font-bold">खाता / लॉगिन</span></a></div></div></div><div class="bg-surface-container-low py-space-xs px-margin-desktop"><div class="max-w-7xl mx-auto flex items-center justify-between"><nav class="flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="home" href="#">होम (Home)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="product-catalog" href="#">सभी उत्पाद (All Catalog)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="insecticides" href="#">कीटनाशक (Insecticides)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="fungicides" href="#">फफूंदनाशक (Fungicides)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="herbicides" href="#">खरपतवारनाशक (Herbicides)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="seeds" href="#">उन्नत बीज (Certified Seeds)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="fertilizers" href="#">खाद व उर्वरक (Fertilizers)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="sprayers-tools" href="#">स्प्रेयर व कृषि यंत्र (Tools)</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-bold rounded-lg" data-path="order-history" href="#">मेरे ऑर्डर (My Orders)</a><a class="px-space-md py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" data-path="user-profile" href="#">किसान प्रोफ़ाइल (Profile)</a></nav><div class="flex items-center gap-space-sm font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-[16px]">storefront</span><span>दुकान से उठाव (Dukaan Pickup) / गाँव डिलीवरी</span></div></div></div></header><main class="w-full pt-36 bg-surface"><div class="flex flex-col w-full pb-space-xl">
+<div class="max-w-7xl mx-auto px-margin-desktop w-full">
+<!-- Breadcrumb & Top Stat Ribbon -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md py-space-md mb-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" data-path="home" href="#">होम (Home)</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">मेरे ऑर्डर व पक्का बिल (Order History)</span>
+</div>
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">किसान खरीद इतिहास</h1>
+<span class="inline-flex items-center gap-space-xs bg-surface-container-high text-primary px-space-sm py-space-xs rounded-lg font-code-md text-code-md">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+            GST/KCC Validated Ledger
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+          आपके द्वारा माँ भगवती किसान सेवा केंद्र से खरीदे गए सभी कीटनाशक, उर्वरक एवं बीजों का विवरण। प्रत्येक खरीद का पक्का जीएसटी बिल व सब्सिडी रसीद सुरक्षित है।
+        </p>
+</div>
+<!-- Quick Summary Badges -->
+<div class="flex items-center gap-space-md bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="bg-surface-container-lowest px-space-md py-space-xs rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">कुल खरीदारी (Lifetime)</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹24,850</span>
+</div>
+<div class="bg-surface-container-lowest px-space-md py-space-xs rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">कुल बचत (Savings)</span>
+<span class="font-headline-md text-headline-md text-secondary font-bold">₹3,420</span>
+</div>
+<div class="hidden sm:flex bg-primary-container text-on-primary px-space-md py-space-xs rounded-lg flex-col justify-center">
+<span class="font-label-sm text-label-sm opacity-90">KCC क्लेम रिकॉर्ड</span>
+<span class="font-label-md text-label-md font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">verified_user</span> 100% वैध
+          </span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Split: Orders Grid (Left) + Regulatory & Depot Sidebar (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- Left Column: Filter Tabs + Order Stream -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Filter Tabs & Quick Search Bar -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs p-1 bg-surface-container rounded-lg" id="filterTabGroup">
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all bg-primary text-on-primary shadow-sm flex items-center gap-space-xs" id="btn-tab-all" onclick="filterOrders('all')">
+<span>सभी ऑर्डर (All)</span>
+<span class="bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded-full text-[11px] font-bold">4</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs" id="btn-tab-active" onclick="filterOrders('active')">
+<span>सक्रिय ऑर्डर (Active)</span>
+<span class="bg-secondary-container text-on-secondary-container px-1.5 py-0.5 rounded-full text-[11px] font-bold">1</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs" id="btn-tab-delivered" onclick="filterOrders('delivered')">
+<span>पूर्ण ऑर्डर (Delivered)</span>
+<span class="bg-surface-container-high text-primary px-1.5 py-0.5 rounded-full text-[11px] font-bold">3</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-outline">search</span>
+<input class="bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none w-full sm:w-48" id="orderSearchInput" onkeyup="searchOrders()" placeholder="ऑर्डर नंबर या उत्पाद खोजें..." type="text"/>
+</div>
+</div>
+<!-- ================= CARD 1: ACTIVE ORDER ================= -->
+<article class="order-card active-order bg-surface-container-lowest rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg" data-search="BKM-2024-9412 coragen confidor insecticide" data-status="active">
+<!-- Card Header Bar -->
+<div class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ऑर्डर संदर्भ (Order No.)</span>
+<span class="font-code-md text-code-md font-bold text-primary">#BKM-2024-9412</span>
+</div>
+<div class="w-px h-6 bg-surface-variant hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">तारीख व समय (Placed On)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">आज, 10:45 AM (Today)</span>
+</div>
+<div class="w-px h-6 bg-surface-variant hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">भुगतान विधि (Payment)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">payments</span> UPI / नकद दुकान पर
+                </span>
+</div>
+</div>
+<!-- Dynamic Live Status Pill -->
+<div class="flex items-center gap-space-xs bg-secondary-fixed text-on-secondary-fixed px-space-md py-space-xs rounded-full font-label-md text-label-md font-bold shadow-sm animate-pulse">
+<span class="material-symbols-outlined text-[16px] text-secondary animate-spin">sync</span>
+<span>पैकिंग जारी (Packed &amp; Processing)</span>
+</div>
+</div>
+<!-- Card Body: Products Breakdown -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Active Timeline Visualizer -->
+<div class="bg-surface-container-low/70 p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span> ऑर्डर स्वीकृत
+                </span>
+<span class="text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">inventory_2</span> डिपो में पैकिंग जारी
+                </span>
+<span class="text-on-surface-variant flex items-center gap-1 opacity-60">
+<span class="material-symbols-outlined text-[15px]">local_shipping</span> डिपो उठाव / गाँव डिलीवरी
+                </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full transition-all duration-500" style="width: 58%;"></div>
+</div>
+<div class="flex justify-between items-center text-[12px] font-label-sm text-on-surface-variant">
+<span>डिपो: मंडी रोड, मुख्य शाखा</span>
+<span class="text-secondary font-semibold">अनुमानित उठाव: आज शाम 04:30 बजे तक</span>
+</div>
+</div>
+<!-- Product Items List -->
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Item 1: FMC Coragen -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest p-1 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+<img class="w-full h-full object-contain" data-alt="FMC Coragen Chlorantraniliprole 18.5% SC white 1 Litre agricultural bottle packaging with authentic green cap and CIB registration label on clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF4JiZakuQ7y4VWsBy1RvWBPbmhQKDZlSW4k4VgPB7DP7Bf9FiNJmOkXbs3a84VqQ0j_gPGIBLxqxPFqqEmbHx087cUR7FSV47GR7_yE_BtCycODtj1jOHERtfjr-Nmti43G9Xstv47PidGQmUx6uoMpRVn45F5WVU9HiWagVDnSFE_5FbYNcl0Nd5xhouE3i_6Ui4AkuU99r0i3d3rJ1rhuEGkFLALT8JUrjcIOte0mwh4FqXtsCZ"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-1.5 py-0.5 rounded font-label-sm uppercase tracking-wide">कीटनाशक (Insecticide)</span>
+<span class="font-code-md text-[11px] text-on-surface-variant">बैच #CRG-992B</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-snug">FMC Coragen (कोराजन)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chlorantraniliprole 18.5% w/w SC • 1 Litre (1 लीटर)</span>
+</div>
+</div>
+<div class="flex items-end sm:items-center justify-between sm:justify-end gap-space-lg w-full sm:w-auto">
+<div class="flex flex-col sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">मात्रा: 1 बोतल</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹1,850</span>
+<span class="font-code-md text-[11px] text-outline line-through">MRP: ₹2,100</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-code-md text-[11px] px-2 py-1 rounded font-bold">बचत ₹250</span>
+</div>
+</div>
+<!-- Item 2: Bayer Confidor -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest p-1 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+<img class="w-full h-full object-contain" data-alt="Bayer Confidor Imidacloprid 17.8% SL professional 500ml pesticide bottle with blue and white label design on crisp isolated background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNWG2Tq5oFqsffU0--7U1SK-1e8mbWSR_n9m-WuZ3ABHbIOy-Kj32oJAMdU7dqHeGHjoxgjVBIeltkGh5NFxshYz65adlDJMFSpBbytlI1i0U9JW0GrVU01MBtwesORdv_QQ1j3A_QZFLHZ-E4Ln23TJZ94y4c4BDF8hU2qG0ig93qlmbSnTbOAZfBcNLbo4TPXLZQ7N6EFBuUg-TmH5ofTx1k6_2Q555fwXlNnHg9tBQ4cRSNcQWn"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-1.5 py-0.5 rounded font-label-sm uppercase tracking-wide">प्रणालीगत कीटनाशक</span>
+<span class="font-code-md text-[11px] text-on-surface-variant">बैच #BYR-1044</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-snug">Bayer Confidor (कॉन्फिडोर)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Imidacloprid 17.8% SL • 500 ml पैक</span>
+</div>
+</div>
+<div class="flex items-end sm:items-center justify-between sm:justify-end gap-space-lg w-full sm:w-auto">
+<div class="flex flex-col sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">मात्रा: 1 बोतल</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹1,900</span>
+<span class="font-code-md text-[11px] text-outline line-through">MRP: ₹2,150</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-code-md text-[11px] px-2 py-1 rounded font-bold">बचत ₹250</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Bar: Financial Summary & Actions -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md mt-space-xs">
+<div class="flex items-center gap-space-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">कुल देय राशि (Total Paid / Payable)</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-primary font-bold">₹3,750</span>
+<span class="font-code-md text-code-md text-on-surface-variant">(GST 18% सहित)</span>
+</div>
+</div>
+<div class="hidden sm:flex flex-col bg-surface-container-lowest px-space-md py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">पक्का इनवॉइस</span>
+<span class="font-code-md text-[12px] text-primary font-bold">INV-2024-9412</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<a class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary px-space-lg py-space-sm rounded-lg font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors shadow-sm min-h-[46px]" data-path="order-tracking" href="#">
+<span class="material-symbols-outlined text-[20px]">location_searching</span>
+<span>लाइव ट्रैक करें (Track Order)</span>
+</a>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-space-sm rounded-lg font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors shadow-sm min-h-[46px]" onclick="openHelpModal('BKM-2024-9412')">
+<span class="material-symbols-outlined text-[18px] text-secondary">support_agent</span>
+<span>सहायता मांगें (Help)</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= CARD 2: DELIVERED ORDER ================= -->
+<article class="order-card delivered-order bg-surface-container-lowest rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg" data-search="BKM-2024-8109 upl saaf npk fertilizer" data-status="delivered">
+<!-- Card Header Bar -->
+<div class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ऑर्डर संदर्भ (Order No.)</span>
+<span class="font-code-md text-code-md font-bold text-primary">#BKM-2024-8109</span>
+</div>
+<div class="w-px h-6 bg-surface-variant hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">डिलीवरी तिथि (Completed On)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">14 अक्टूबर 2024 (14 Oct 2024)</span>
+</div>
+<div class="w-px h-6 bg-surface-variant hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">उठाव केंद्र (Depot Branch)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">मंडी रोड मुख्य डिपो</span>
+</div>
+</div>
+<!-- Delivered Status Pill -->
+<div class="flex items-center gap-space-xs bg-primary-fixed text-on-primary-fixed px-space-md py-space-xs rounded-full font-label-md text-label-md font-bold shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>सफलतापूर्वक प्राप्त (Picked Up from Depot)</span>
+</div>
+</div>
+<!-- Card Body: Products Breakdown -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-md">
+<!-- Item 1: UPL Saaf -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest p-1 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+<img class="w-full h-full object-contain" data-alt="UPL Saaf Fungicide Carbendazim 12 percent plus Mancozeb 63 percent WP blue foil pouch pack agricultural product authentic photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRLIR4xKzjTEOqls_x0iWgRN0XiRZs4rkekZcMOgwt-QsHrWt1Kv8r2_d5ZFn6AxC1JkMDwnK2tz6o5z6KDY9Hd41L2b_NcE3HNFPIphCGfFTWrXOy4PFKd6AFcH3DXLiUiPd0yLCIfx71ojb4uBEbkRFw26BlCScIW5o0n3dpmhYkEAZXwJ4Dj6Cz3lUVQrrDCczBhl88W5Uo0-SGlbRAEVZkGwvsEooncMHnefbDyIT36Dh7rQd2"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="bg-purple-100 text-purple-900 text-[10px] font-bold px-1.5 py-0.5 rounded font-label-sm uppercase tracking-wide">फफूंदनाशक (Fungicide)</span>
+<span class="font-code-md text-[11px] text-on-surface-variant">बैच #SAF-5441</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-snug">UPL Saaf Fungicide (साफ)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Carbendazim 12% + Mancozeb 63% WP • 1 Kg पैक</span>
+</div>
+</div>
+<div class="flex items-end sm:items-center justify-between sm:justify-end gap-space-lg w-full sm:w-auto">
+<div class="flex flex-col sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">मात्रा: 1 पैक (1kg)</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹850</span>
+<span class="font-code-md text-[11px] text-outline line-through">MRP: ₹980</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-code-md text-[11px] px-2 py-1 rounded font-bold">बचत ₹130</span>
+</div>
+</div>
+<!-- Item 2: IFFCO NPK 19-19-19 -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest p-1 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+<img class="w-full h-full object-contain" data-alt="IFFCO Water Soluble Fertilizer NPK 19-19-19 1kg high grade bag product packaging on clean studio setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAJVLfhyANy1oiF_4cFiTDEEi3px1W33o0YwlCEzB6l3sAb6Shi2C1Vfew6WReuPY2Ab10lJ10pa-lG4ioUsRNXPczsFJm1_L1j3Hgy-isF9w_t1-lpI16sYSc6LKQTYecGOKCLphPhuFyrQwe3K8NSKPwsZonvYOG4V5RbxC_E6lUvuoK5XBWaGyj7BkGxn-W-MHY0Z_I6qYV8ZbYPapfsSLPTKU49nBEuTCvEsA4TWBTlmdCBQ7x"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="bg-rose-100 text-rose-900 text-[10px] font-bold px-1.5 py-0.5 rounded font-label-sm uppercase tracking-wide">घुलनशील खाद (Fertilizer)</span>
+<span class="font-code-md text-[11px] text-on-surface-variant">बैच #NPK-8119</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-snug">IFFCO NPK 19:19:19 100% Water Soluble</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">संपूर्ण पौध पोषण • 1 Kg × 2 बैग (2 किलो)</span>
+</div>
+</div>
+<div class="flex items-end sm:items-center justify-between sm:justify-end gap-space-lg w-full sm:w-auto">
+<div class="flex flex-col sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">मात्रा: 2 पैकेट</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹1,600</span>
+<span class="font-code-md text-[11px] text-outline line-through">MRP: ₹1,800</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-code-md text-[11px] px-2 py-1 rounded font-bold">बचत ₹200</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Bar: Financial Summary & Actions -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md mt-space-xs">
+<div class="flex items-center gap-space-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">कुल बिल राशि (Invoice Amount Paid)</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-primary font-bold">₹2,450</span>
+<span class="font-code-md text-code-md text-on-surface-variant">(सकल बचत ₹330)</span>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs text-primary font-label-sm text-label-sm font-semibold bg-surface-container-lowest px-space-md py-1 rounded-lg">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>GSTIN: 09AAAFB1234F1Z5</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary px-space-lg py-space-sm rounded-lg font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors shadow-sm min-h-[46px]" onclick="reorderItems('BKM-2024-8109')">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+<span>पुनः ऑर्डर करें (Re-order in 1-Click)</span>
+</button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-space-sm rounded-lg font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors shadow-sm min-h-[46px]" onclick="downloadInvoice('INV-8109')">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>जीएसटी पक्का बिल डाउनलोड</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ================= CARD 3: DELIVERED ORDER ================= -->
+<article class="order-card delivered-order bg-surface-container-lowest rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg" data-search="BKM-2024-7622 fmc coragen insecticide" data-status="delivered">
+<!-- Card Header Bar -->
+<div class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ऑर्डर संदर्भ (Order No.)</span>
+<span class="font-code-md text-code-md font-bold text-primary">#BKM-2024-7622</span>
+</div>
+<div class="w-px h-6 bg-surface-variant hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">डिलीवरी तिथि (Completed On)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">28 सितम्बर 2024 (28 Sep 2024)</span>
+</div>
+<div class="w-px h-6 bg-surface-variant hidden sm:block"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">वितरण प्रकार (Fulfillment)</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">गाँव किसान एक्सप्रेस डिलीवरी</span>
+</div>
+</div>
+<!-- Delivered Status Pill -->
+<div class="flex items-center gap-space-xs bg-primary-fixed text-on-primary-fixed px-space-md py-space-xs rounded-full font-label-md text-label-md font-bold shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>गाँव में सुरक्षित प्राप्त (Delivered)</span>
+</div>
+</div>
+<!-- Card Body: Products Breakdown -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-md">
+<!-- Item: FMC Coragen 1L -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md p-space-sm bg-surface-container-lowest rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-lowest p-1 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm">
+<img class="w-full h-full object-contain" data-alt="FMC Coragen pesticide 1 Litre genuine bottle package front view with green cap and yellow hazard diamond tag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6hv2c8V5Qnrp5yC_Y_QbkeUn5DpvdDgoZOUYQtS5BWLhil4CllJecZ6yHR_PL-Iow0F1Cbo6FtXZi3wF7m6BN325Px-E_d38iv0_iE08xr544nd5SxDR81QVv3suBZWzJfIQQ5cnqrNQAeJ0glynoIECYowUlYFMPjudUaCfi1EXSjB7F8RElPjw7VbAQLqHSgmNI46EasEIzgNsyrv80y1YSA2BcKl7o6-viTuCjmkyZk1PxO4aT"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-0.5">
+<span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-1.5 py-0.5 rounded font-label-sm uppercase tracking-wide">कीटनाशक (Insecticide)</span>
+<span class="font-code-md text-[11px] text-on-surface-variant">बैच #CRG-781A</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-snug">FMC Coragen 18.5% SC</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">तनाव छेदक व पत्ता लपेटक कीट नियंत्रण • 1 Litre</span>
+</div>
+</div>
+<div class="flex items-end sm:items-center justify-between sm:justify-end gap-space-lg w-full sm:w-auto">
+<div class="flex flex-col sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">मात्रा: 1 बोतल (1L)</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₹1,850</span>
+<span class="font-code-md text-[11px] text-outline line-through">MRP: ₹2,100</span>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed font-code-md text-[11px] px-2 py-1 rounded font-bold">बचत ₹250</span>
+</div>
+</div>
+</div>
+<!-- Card Bottom Bar: Financial Summary & Actions -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md mt-space-xs">
+<div class="flex items-center gap-space-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">कुल भुगतान (Total Paid)</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-primary font-bold">₹1,850</span>
+<span class="font-code-md text-code-md text-on-surface-variant">(पक्का जीएसटी पेड)</span>
+</div>
+</div>
+<div class="hidden sm:flex flex-col bg-surface-container-lowest px-space-md py-1 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">रसीद संख्या</span>
+<span class="font-code-md text-[12px] text-primary font-bold">INV-2024-7622</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary px-space-lg py-space-sm rounded-lg font-label-lg text-label-lg font-bold hover:bg-primary-container transition-colors shadow-sm min-h-[46px]" onclick="reorderItems('BKM-2024-7622')">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+<span>पुनः ऑर्डर करें (1-Click Re-order)</span>
+</button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-space-xs bg-surface-container-lowest text-on-surface px-space-md py-space-sm rounded-lg font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors shadow-sm min-h-[46px]" onclick="downloadInvoice('INV-7622')">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>बिल डाउनलोड</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Empty state placeholder (hidden initially) -->
+<div class="hidden bg-surface-container-lowest p-space-xl rounded-xl text-center flex-col items-center justify-center gap-space-sm" id="noResultsState">
+<span class="material-symbols-outlined text-[48px] text-outline">search_off</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">कोई ऑर्डर नहीं मिला</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">आपके द्वारा खोजे गए शब्द या चुने गए फ़िल्टर अनुसार कोई ऑर्डर उपलब्ध नहीं है।</p>
+<button class="bg-primary text-on-primary px-space-md py-space-xs rounded-lg font-label-md text-label-md mt-space-sm" onclick="filterOrders('all')">सभी ऑर्डर देखें</button>
+</div>
+</div>
+<!-- Right Column: Institutional Trust, Tax Invoice Compliance, KCC & Depot Hub -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Trust Box 1: 100% Tax Invoice & KCC Claim Guarantee -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">100% पक्का बिल गारंटी</h2>
+<span class="font-code-md text-code-md text-primary font-bold">CIB&amp;RC Govt. Registered Depot</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            माँ भगवती किसान मार्ट द्वारा जारी प्रत्येक इनवॉइस पर वैध जीएसटी नंबर अंकित होता है। यह रसीद <span class="font-semibold text-on-surface">किसान क्रेडिट कार्ड (KCC) ऋण समायोजन</span>, कृषि अनुदान (Govt Subsidy) एवं फसल बीमा क्लेम के लिए पूर्णतः मान्य है।
+          </p>
+<!-- Verification Points -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-lg font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>कंपनी द्वारा प्राधिकृत सीलबंद ओरिजिनल बैच</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>कीटनाशक व बीज लॉट नंबर इनवॉइस पर प्रिंटेड</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span>उपज में नुकसान पर अधिकृत रिपोर्टिंग सहायता</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant font-code-md text-code-md">
+<span>GSTIN : 09AAAFB1234F1Z5</span>
+<span class="text-primary font-bold">सत्यापित डिपो</span>
+</div>
+</div>
+<!-- Trust Box 2: Local Depot & Agronomist Support -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">स्थानीय केंद्र व डिपो</h2>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Maa Bhagwati Kisan Seva Kendra</span>
+</div>
+</div>
+<!-- Physical Depot Details -->
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
+<span class="text-on-surface">दुकान नंबर 14-16, नवीन कृषि गल्ला मंडी परिसर, मंडी रोड, उत्तर प्रदेश</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span>खुलने का समय: प्रातः 08:00 - सायं 07:30 (दैनिक)</span>
+</div>
+</div>
+<!-- Immediate Call / WhatsApp CTAs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<a class="flex items-center justify-center gap-space-xs bg-primary text-on-primary py-space-sm px-space-md rounded-lg font-label-md text-label-md font-bold hover:bg-primary-container transition-colors shadow-sm" href="tel:18008905421">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>कॉल करें</span>
+</a>
+<a class="flex items-center justify-center gap-space-xs bg-surface-container-high text-primary py-space-sm px-space-md rounded-lg font-label-md text-label-md font-bold hover:bg-surface-variant transition-colors shadow-sm" href="https://wa.me/919452011223" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>व्हाट्सएप</span>
+</a>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">psychology_alt</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">कृषि विशेषज्ञ सलाह उपलब्ध</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant leading-tight">छिड़काव मात्रा व रोग पहचान हेतु निःशुल्क परामर्श प्राप्त करें</span>
+</div>
+</div>
+</div>
+<!-- Quick Download All Records Banner -->
+<div class="bg-surface-container-high p-space-lg rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-primary font-bold">
+<span class="material-symbols-outlined text-[20px]">folder_zip</span>
+<span class="font-label-lg text-label-lg">वार्षिक ऑडिट व KCC स्टेटमेंट</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            वित्तीय वर्ष 2024-25 के सभी पक्के इनवॉइस का संयुक्त पीडीएफ बैंक में प्रस्तुत करने हेतु तुरंत डाउनलोड करें।
+          </p>
+<button class="mt-space-xs bg-surface-container-lowest text-primary px-space-md py-space-xs rounded-lg font-label-md text-label-md font-bold hover:bg-surface-bright transition-colors shadow-sm flex items-center justify-center gap-space-xs" onclick="downloadAnnualStatement()">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span>वार्षिक जीएसटी रसीद बंडल (PDF)</span>
+</button>
+</div>
+</aside>
+</div>
+</div>
+<!-- Interactive Help Modal (Hidden by Default) -->
+<div class="fixed inset-0 bg-inverse-surface/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden" id="helpModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold leading-none">किसान सहायता केंद्र</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="modalOrderRef">ऑर्डर सहायता</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-variant" onclick="closeHelpModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        क्या आपको डिलीवरी में देरी, दवा के प्रयोग की विधि या पक्के बिल से संबंधित कोई समस्या है? हमारे डिपो प्रबंधक से सीधे बात करें।
+      </p>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">समस्या का विषय चुनें (Issue Type):</label>
+<select class="w-full bg-surface-container-low p-space-sm rounded-lg font-body-sm text-body-sm text-on-surface outline-none">
+<option>उठाव / डिलीवरी स्थिति की जानकारी (Delivery Status)</option>
+<option>दवा के छिड़काव अनुपात व विधि की सलाह (Dosage Query)</option>
+<option>जीएसटी इनवॉइस में नाम/KCC नंबर सुधार (Invoice Correction)</option>
+<option>अन्य सहायता (Other Assistance)</option>
+</select>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface" onclick="closeHelpModal()">रद्द करें</button>
+<button class="bg-primary text-on-primary px-space-lg py-space-sm rounded-lg font-label-md text-label-md font-bold hover:bg-primary-container transition-colors shadow-sm" onclick="submitHelpRequest()">सहायता संदेश भेजें</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification element -->
+<div class="fixed bottom-6 right-6 bg-inverse-surface text-inverse-on-surface px-space-lg py-space-md rounded-xl shadow-xl font-label-md text-label-md flex items-center gap-space-sm z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastNotification">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]" id="toastIcon">check_circle</span>
+<span id="toastMessage">सफलतापूर्वक पूर्ण हुआ</span>
+</div>
+</div>
+<script>
+  // Simple client-side filtering logic
+  function filterOrders(filterType) {
+    const cards = document.querySelectorAll('.order-card');
+    const tabs = ['all', 'active', 'delivered'];
+    
+    // Update tab visual states
+    tabs.forEach(t => {
+      const btn = document.getElementById('btn-tab-' + t);
+      if (t === filterType) {
+        btn.className = "px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all bg-primary text-on-primary shadow-sm flex items-center gap-space-xs";
+      } else {
+        btn.className = "px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs";
+      }
+    });
+
+    let visibleCount = 0;
+    cards.forEach(card => {
+      if (filterType === 'all' || card.getAttribute('data-status') === filterType) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    const noResults = document.getElementById('noResultsState');
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+      noResults.classList.add('flex');
+    } else {
+      noResults.classList.add('hidden');
+      noResults.classList.remove('flex');
+    }
+  }
+
+  // Quick live search filter
+  function searchOrders() {
+    const query = document.getElementById('orderSearchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.order-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const searchData = (card.getAttribute('data-search') || '').toLowerCase();
+      if (searchData.includes(query)) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    const noResults = document.getElementById('noResultsState');
+    if (visibleCount === 0) {
+      noResults.classList.remove('hidden');
+      noResults.classList.add('flex');
+    } else {
+      noResults.classList.add('hidden');
+      noResults.classList.remove('flex');
+    }
+  }
+
+  // 1-Click Re-order interaction
+  function reorderItems(orderId) {
+    showToast(`ऑर्डर #${orderId} के सभी उत्पाद आपकी कार्ट में जोड़ दिए गए हैं! (Added to Cart)`);
+  }
+
+  // GST Invoice download simulation
+  function downloadInvoice(invoiceId) {
+    showToast(`जीएसटी पक्का बिल (${invoiceId}.pdf) डाउनलोड हो रहा है...`);
+  }
+
+  // Annual Statement download simulation
+  function downloadAnnualStatement() {
+    showToast("वित्तीय वर्ष 2024-25 का किसान स्टेटमेंट तैयार हो रहा है...");
+  }
+
+  // Help Modal controls
+  function openHelpModal(orderId) {
+    const modal = document.getElementById('helpModal');
+    document.getElementById('modalOrderRef').textContent = `ऑर्डर संदर्भ: #${orderId}`;
+    modal.classList.remove('hidden');
+  }
+
+  function closeHelpModal() {
+    document.getElementById('helpModal').classList.add('hidden');
+  }
+
+  function submitHelpRequest() {
+    closeHelpModal();
+    showToast("आपकी सहायता प्रार्थना डिपो प्रबंधक को भेज दी गई है। 15 मिनट में संपर्क किया जाएगा।");
+  }
+
+  // Toast Notification helper
+  function showToast(msg) {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    toastMsg.textContent = msg;
+    
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-24', 'opacity-0');
+    }, 3500);
+  }
+</script></main><footer class="w-full bg-surface-container-high pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm mb-space-xs"><span class="material-symbols-outlined text-primary text-[28px]">agriculture</span><span class="font-headline-md text-headline-md font-bold text-primary">माँ भगवती किसान सेवा केंद्र</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">केंद्रीय कीटनाशक बोर्ड द्वारा मान्यता प्राप्त प्राधिकृत कृषि रक्षा केंद्र। उत्तर प्रदेश के किसानों के लिए 100% शुद्ध खाद, बीज एवं कीटनाशक की विश्वसनीय दुकान।</p><div class="mt-space-sm font-code-md text-code-md text-on-surface-variant">Mandi Road, Main Bazar, Uttar Pradesh</div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface font-bold">विश्वसनीय श्रेणियां (Categories)</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="insecticides" href="#">कीटनाशक (Insecticides)</a></li><li><a class="hover:text-primary transition-colors" data-path="fungicides" href="#">फफूंदनाशक (Fungicides)</a></li><li><a class="hover:text-primary transition-colors" data-path="herbicides" href="#">खरपतवारनाशक (Herbicides)</a></li><li><a class="hover:text-primary transition-colors" data-path="seeds" href="#">प्रमाणित हाइब्रिड बीज (Hybrid Seeds)</a></li><li><a class="hover:text-primary transition-colors" data-path="fertilizers" href="#">जैव उर्वरक व NPK (Fertilizers)</a></li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface font-bold">किसान सहायता केंद्र (Helpline)</span><div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-secondary font-bold">टोल-फ्री कृषि परामर्श:</span><span class="font-headline-md text-headline-md text-primary font-bold">1800-890-5421</span><span class="font-body-sm text-body-sm text-on-surface-variant">सोमवार से शनिवार: प्रातः 8:00 से शाम 7:00</span></div><div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-primary text-[20px]">mark_email_read</span><span>bhagwati.kisan@seva.in</span></div></div><div class="flex flex-col gap-space-sm"><span class="font-label-lg text-label-lg text-on-surface font-bold">किसान गारंटी व सेवाएं</span><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg"><span class="material-symbols-outlined text-primary text-[22px]">verified_user</span><div><div class="font-label-sm text-label-sm font-bold text-on-surface">100% असली उत्पाद</div><div class="font-body-sm text-body-sm text-on-surface-variant">कंपनी से सीधे प्राधिकृत वितरण</div></div></div><div class="flex items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg"><span class="material-symbols-outlined text-primary text-[22px]">receipt_long</span><div><div class="font-label-sm text-label-sm font-bold text-on-surface">पक्का जीएसटी बिल</div><div class="font-body-sm text-body-sm text-on-surface-variant">सब्सिडी व क्लेम हेतु मान्य</div></div></div><div class="flex items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg"><span class="material-symbols-outlined text-secondary text-[22px]">local_shipping</span><div><div class="font-label-sm text-label-sm font-bold text-on-surface">गाँव-गाँव सुरक्षित आपूर्ति</div><div class="font-body-sm text-body-sm text-on-surface-variant">दुकान पिकअप अथवा घर पर डिलीवरी</div></div></div></div></div></div><div class="max-w-7xl mx-auto px-margin-desktop pt-space-md bg-surface-container-high flex flex-col md:flex-row items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><p>© 2024 भगवती किसान मार्ट (Maa Bhagwati Kisan Seva Kendra). सर्वाधिकार सुरक्षित। उत्तर प्रदेश कृषि विपणन अनुसार पंजीकृत।</p><div class="flex items-center gap-space-lg mt-space-sm md:mt-0"><a class="hover:text-on-surface" data-path="order-history" href="#">मेरे ऑर्डर</a><a class="hover:text-on-surface" data-path="order-tracking" href="#">ऑर्डर ट्रैकिंग</a><a class="hover:text-on-surface" data-path="user-profile" href="#">किसान प्रोफ़ाइल</a><a class="hover:text-on-surface text-secondary font-bold" data-path="admin-login" href="#">संचालक पोर्टल (Staff/Admin)</a></div></div></footer></body></html>
