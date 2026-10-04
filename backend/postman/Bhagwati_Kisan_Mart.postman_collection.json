@@ -1,0 +1,777 @@
+{
+  "info": {
+    "name": "Bhagwati Kisan Mart - API Collection",
+    "_postman_id": "bkm-api-collection-v1",
+    "description": "Production Postman collection for Bhagwati Kisan Mart e-commerce platform backend (NestJS, Supabase Postgres, Upstash Redis). Covers Authentication, Customer Profile, Product Catalog, Concurrency-Safe Order Checkout & State Machine, and Role-Based Admin Operations.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:4000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "phone_number",
+      "value": "7983636796",
+      "type": "string"
+    },
+    {
+      "key": "product_id",
+      "value": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "type": "string"
+    },
+    {
+      "key": "order_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "staff_id",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Authentication",
+      "description": "Phone/OTP Authentication via MSG91 SMS gateway with Upstash Redis rate limiting and JWT session issuance.",
+      "item": [
+        {
+          "name": "1.1 Send OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"{{phone_number}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/otp/send",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "otp", "send"]
+            },
+            "description": "Dispatches a 6-digit cryptographically secure OTP to the 10-digit Indian mobile number. Enforces 60-second cooldown and max 5 requests/hour rate limiting in Redis."
+          },
+          "response": []
+        },
+        {
+          "name": "1.2 Verify OTP (Auto-Saves Tokens)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (pm.response.code === 200 && res.data && res.data.tokens) {",
+                  "    if (pm.environment) {",
+                  "        pm.environment.set('access_token', res.data.tokens.accessToken);",
+                  "        pm.environment.set('refresh_token', res.data.tokens.refreshToken);",
+                  "    }",
+                  "    pm.collectionVariables.set('access_token', res.data.tokens.accessToken);",
+                  "    pm.collectionVariables.set('refresh_token', res.data.tokens.refreshToken);",
+                  "    console.log('✓ Successfully saved access_token and refresh_token!');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"{{phone_number}}\",\n  \"otp\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/otp/verify",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "otp", "verify"]
+            },
+            "description": "Verifies submitted OTP via timing-safe comparison. On success, creates user account in Postgres if new, and returns JWT access and refresh tokens."
+          },
+          "response": []
+        },
+        {
+          "name": "1.3 Refresh Access Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (pm.response.code === 200 && res.data && res.data.accessToken) {",
+                  "    if (pm.environment) {",
+                  "        pm.environment.set('access_token', res.data.accessToken);",
+                  "        if (res.data.refreshToken) {",
+                  "            pm.environment.set('refresh_token', res.data.refreshToken);",
+                  "        }",
+                  "    }",
+                  "    pm.collectionVariables.set('access_token', res.data.accessToken);",
+                  "    if (res.data.refreshToken) {",
+                  "        pm.collectionVariables.set('refresh_token', res.data.refreshToken);",
+                  "    }",
+                  "    console.log('✓ Access token refreshed!');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/refresh",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "refresh"]
+            },
+            "description": "Refreshes expired 15-minute access token using 7-day rotating refresh token. Revokes previous refresh token in Redis to prevent reuse."
+          },
+          "response": []
+        },
+        {
+          "name": "1.4 Get Current Session (Me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "me"]
+            },
+            "description": "Returns current authenticated customer/admin session and role directly from JWT payload."
+          },
+          "response": []
+        },
+        {
+          "name": "1.5 Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "logout"]
+            },
+            "description": "Revokes active refresh token from Upstash Redis session store."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Products (Catalog)",
+      "description": "Public storefront product catalog browsing with pagination and category filtering.",
+      "item": [
+        {
+          "name": "2.1 List Products (Paginated & Filtered)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (pm.response.code === 200 && res.data && res.data.items && res.data.items.length > 0) {",
+                  "    pm.collectionVariables.set('product_id', res.data.items[0].id);",
+                  "    console.log('✓ Auto-selected product_id: ' + res.data.items[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/products?page=1&limit=10&category=herbicide",
+              "host": ["{{base_url}}"],
+              "path": ["products"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "category",
+                  "value": "herbicide",
+                  "description": "insecticide, fungicide, herbicide, bactericide, nematicide, pgr, seed, fertilizer"
+                }
+              ]
+            },
+            "description": "Returns active catalog items with pagination metadata. Auto-saves first product ID into collection variable."
+          },
+          "response": []
+        },
+        {
+          "name": "2.2 Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["products", "{{product_id}}"]
+            },
+            "description": "Retrieves comprehensive details for a specific agricultural product (dosage, brand, stock, pricing)."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Users (Profile)",
+      "description": "Customer demographic details and delivery address management.",
+      "item": [
+        {
+          "name": "3.1 Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/profile",
+              "host": ["{{base_url}}"],
+              "path": ["users", "profile"]
+            },
+            "description": "Returns current customer profile, shipping address, and calculated `isProfileComplete` status flag."
+          },
+          "response": []
+        },
+        {
+          "name": "3.2 Update Profile (Address & PIN Code)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ramesh Patel\",\n  \"address\": \"Village Bilhaur, Near GT Road Kisan Mandi\",\n  \"pincode\": \"209202\",\n  \"district\": \"Kanpur Nagar\",\n  \"region\": \"Kanpur\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/profile",
+              "host": ["{{base_url}}"],
+              "path": ["users", "profile"]
+            },
+            "description": "Updates customer shipping details. Pincode is strictly validated against Indian 6-digit format."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Orders (Checkout & Lifecycle)",
+      "description": "Concurrency-safe checkout with atomic inventory decrement, client idempotency keys, and order cancellation.",
+      "item": [
+        {
+          "name": "4.1 Place Order (Checkout)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (pm.response.code === 201 && res.data && res.data.id) {",
+                  "    pm.collectionVariables.set('order_id', res.data.id);",
+                  "    console.log('✓ Successfully created order! order_id: ' + res.data.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "x-idempotency-key",
+                "value": "idem-key-{{$timestamp}}",
+                "description": "Protects against double-orders upon slow network retries"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"productId\": \"{{product_id}}\",\n      \"quantity\": 1\n    }\n  ],\n  \"fulfillmentType\": \"delivery\",\n  \"paymentMethod\": \"cod\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["orders"]
+            },
+            "description": "Places order inside a PostgreSQL transaction. Atomically decrements product stock and records GST invoice sequence."
+          },
+          "response": []
+        },
+        {
+          "name": "4.2 List Customer Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders?page=1&limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": "placed",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Returns paginated list of orders placed by the current customer."
+          },
+          "response": []
+        },
+        {
+          "name": "4.3 Get Order by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders/{{order_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "{{order_id}}"]
+            },
+            "description": "Retrieves order line items, pricing, and fulfillment status. Guarantees customer ownership."
+          },
+          "response": []
+        },
+        {
+          "name": "4.4 Cancel Order (Customer)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Need to change delivery address\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/orders/{{order_id}}/cancel",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "{{order_id}}", "cancel"]
+            },
+            "description": "Cancels an order if in 'placed' or 'confirmed' state. Automatically restores inventory stock to products table."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. Admin - Catalog Management",
+      "description": "Product catalog CRUD, inventory restocking, and soft deletion. Enforces 'owner' or 'staff' RBAC.",
+      "item": [
+        {
+          "name": "5.1 List All Products (Admin - Owner/Staff)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/products?page=1&limit=20&isActive=true",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "products"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "isActive",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "Lists all products including active and deactivated inventory items."
+          },
+          "response": []
+        },
+        {
+          "name": "5.2 Create Product (Owner only)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Coragen Insecticide\",\n  \"category\": \"insecticide\",\n  \"brand\": \"FMC\",\n  \"description\": \"Broad-spectrum lepidopteran pest control with long duration of control.\",\n  \"dosageInfo\": \"0.4 ml per liter of water\",\n  \"price\": 1850.00,\n  \"mrp\": 2100.00,\n  \"stockQty\": 40,\n  \"hsnCode\": \"38089199\",\n  \"gstRate\": 18.00,\n  \"imageUrls\": [\n    \"https://placehold.co/600x600/png?text=Coragen\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/products",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "products"]
+            },
+            "description": "Creates a new regulated agri-input in the catalog with GST metadata and pricing."
+          },
+          "response": []
+        },
+        {
+          "name": "5.3 Update Product Details (Owner only)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 1820.00,\n  \"mrp\": 2100.00\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "products", "{{product_id}}"]
+            },
+            "description": "Updates product pricing, dosage instructions, or description."
+          },
+          "response": []
+        },
+        {
+          "name": "5.4 Update Stock Quantity (Owner/Staff)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stockQty\": 100\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/products/{{product_id}}/stock",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "products", "{{product_id}}", "stock"]
+            },
+            "description": "Restocks physical product inventory. Accessible by both owner and operational staff."
+          },
+          "response": []
+        },
+        {
+          "name": "5.5 Soft Delete Product (Owner only)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "products", "{{product_id}}"]
+            },
+            "description": "Sets `is_active = false`. Preserves historical records for past orders and GST invoices."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Admin - Orders & Fulfillment",
+      "description": "Fulfillment status progression through explicit finite state machine.",
+      "item": [
+        {
+          "name": "6.1 List All Orders (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/orders?page=1&limit=20&status=placed",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "orders"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "status",
+                  "value": "placed",
+                  "description": "placed, confirmed, packed, out_for_delivery, ready_for_pickup, delivered, picked_up, cancelled"
+                }
+              ]
+            },
+            "description": "Lists all customer orders across the platform with customer phone and delivery status."
+          },
+          "response": []
+        },
+        {
+          "name": "6.2 Get Order Details (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/orders/{{order_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "orders", "{{order_id}}"]
+            },
+            "description": "Retrieves comprehensive order details including customer delivery address, contact info, and line items."
+          },
+          "response": []
+        },
+        {
+          "name": "6.3 Advance Order Status (State Machine)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"confirmed\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/orders/{{order_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "orders", "{{order_id}}", "status"]
+            },
+            "description": "Advances order status through the finite state machine: placed -> confirmed -> packed -> out_for_delivery -> delivered."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "7. Admin - Staff Administration",
+      "description": "Store owner management of staff accounts.",
+      "item": [
+        {
+          "name": "7.1 List Staff Members (Owner only)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (pm.response.code === 200 && res.data && res.data.length > 0) {",
+                  "    pm.collectionVariables.set('staff_id', res.data[0].id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/staff",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "staff"]
+            },
+            "description": "Lists registered staff and owner profiles."
+          },
+          "response": []
+        },
+        {
+          "name": "7.2 Register Staff Member (Owner only)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (pm.response.code === 201 && res.data && res.data.id) {",
+                  "    pm.collectionVariables.set('staff_id', res.data.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohan Sharma\",\n  \"phoneNumber\": \"9876543299\",\n  \"role\": \"staff\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/staff",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "staff"]
+            },
+            "description": "Authorizes a staff phone number to access admin order fulfillment and stock updating endpoints."
+          },
+          "response": []
+        },
+        {
+          "name": "7.3 Remove Staff Member (Owner only)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/staff/{{staff_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "staff", "{{staff_id}}"]
+            },
+            "description": "Deactivates staff access."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
